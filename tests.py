@@ -78,7 +78,7 @@ def test_read_events_by_cat():
                 else:
                     iii += 1
 
-    #ЕЩЕ РАЗ ОТКРЫВАЕМ ФАЙЛ, чтобы мы могли его прочитать и получить не обрезанный текст
+    #ЕЩЕ РАЗ ОТКРЫВАЕМ ФАЙЛ, чтобы мы могли его прочитать и получить не обрезанный, а ориг текст
     with open('test_cal.txt', 'r') as f:
         original_content = f.read()
         print(f"\nlol!\n{new_content}")
@@ -89,7 +89,6 @@ def test_read_events_by_cat():
 
 def test_update_event():
     with open('test_cal.txt', 'w') as f:
-        #создаем несколько записей, чтоб нужная была между ними
         test_id = '1'
         test_date = '2000-01-01'
         test_time = '11:00'
@@ -106,8 +105,6 @@ def test_update_event():
             print('Нет такого id')
         razor_end = old_data[razor + 1:].find('id:') + razor
         data_to_change = old_data[razor + 6: razor_end]
-        # print(f"Событие с id {event_id} содержит следующую информацию:\n{data_to_change}\n"
-        #       f"\nОно подлежит изменению.\n")
         event_date = '1999-09-09'
         event_time = '19:00'
         event_cat = 'work'
